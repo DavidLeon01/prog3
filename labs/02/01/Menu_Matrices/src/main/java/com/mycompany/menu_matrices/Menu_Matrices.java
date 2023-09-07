@@ -19,38 +19,25 @@ public class Menu_Matrices {
         int f2;
         int c2;
         int num1;
-        System.out.println("Seleccione una Opcion: \n1.Suma De Matrices \n2.Producto Punto \n3.Producto de un escalar \n4.Transpuesta de una Matriz. \n5.Que opcion desea: ");
+        System.out.println("Seleccione una Opcion: \n1.Suma De Matrices \n2.Producto Punto \n3.Producto de un escalar \n4.Transpuesta de una Matriz. \n\n Que opcion desea: ");
         opcion = entrada.nextInt();
         
         switch (opcion){
         case 1:{
-    System.out.println("Ingrese el numero de filas de la matriz: ");
-    esp = entrada.nextInt();
-            
+            System.out.print("Ingrese el numero de filas de la matriz: ");
+  esp=Captura.lec();
+           
     int matrizA[][] = new int[esp][esp];
     int matrizB[][] = new int[esp][esp];
     int matrizC[][] = new int[esp][esp];
     int matrizD[][] = new int[esp][esp];
             
     
-    for (int i=0;i<esp;i++){
-     for (int j=0; j<esp;j++){
-     System.out.println("Ingrese numero para la matriz A: ");
-     matrizA[i][j] = entrada.nextInt();
-     }
-    }
-     for (int i=0;i<esp;i++){
-     for (int j=0; j<esp;j++){
-     System.out.println("Ingrese numero para la matriz A: ");
-     matrizB[i][j] = entrada.nextInt();
-     }
-    }
+    matrizA=Captura.mrc();
+    matrizB=Captura.mrc();
     matrizC = op.suma(esp,matrizA,matrizB,matrizD);
-    
-        for(int i=0;i<esp;i++){
-        for(int j=0;j<esp;j++){
-        System.out.print(matrizC[i][j]+"\t");}
-        System.out.print("\n");}
+    Captura.impm(esp,esp,matrizC);
+        break;
         }
         case 2:{
         System.out.println("Ingrese el numero de filas de la primera Matriz");
@@ -90,32 +77,33 @@ public class Menu_Matrices {
         System.out.println("Las dimensiones no cumplen los criterios del producto punto");}
         }
         case 3:{
-             esp = 4;
-                            int matrizA[][] = new int[esp][esp];
-                            int matrizB[][] = new int[esp][esp];
-
-                            for (int i = 0; i < esp; i++) {
-                                for (int j = 0; j < esp; j++) {
-                                    System.out.println("Ingrese un valor para la matriz");
-                                    matrizA[i][j] = entrada.nextInt();
-
-                                }
-                            }
-                            System.out.println("Ingrese un numero por el que multiplicar la matriz");
-                            num1 = entrada.nextInt();
-
-                           
-
-                            for (int i = 0; i < esp; i++) {
-                                for (int j = 0; j < esp; j++) {
-                                    System.out.print(matrizB[i][j] + "\t");
-
-                                }
-                                System.out.print("\n");
-                            }
-                            break;
-                        }
-
+            System.out.print("Digite el valor de la Matriz: \n1.2x2 \n2.3x3 \n3.4x4 ");
+            num1= entrada.nextInt();
+        }
+        
+        case 4:{
+        System.out.println("Ingrese el numero de filas: ");
+        f1 = entrada.nextInt();
+        System.out.println("Ingresa el numero de columnas: ");
+        c1 = entrada.nextInt();
+        
+        int matrizA[][] = new int[f1][c1];
+        int matrizB[][] = new int[f1][c1];
+        
+        for(int i=0;i<f1;i++){
+        for(int j=0;j<c1;j++){
+        System.out.println("Ingrese un numero para la matriz: ");
+        matrizA[i][j]=entrada.nextInt();
+        }
+        }
+        for(int i=0;i<c1;i++){
+        for(int j=0;j<f1;j++){
+        System.out.print(matrizB[i][j]+"\t");
+        }
+        System.out.print("\n");
+        }
+        break;
+        }
                     }
         }
         
