@@ -14,6 +14,7 @@ public class Menu_Matrices {
 
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
+        Operaciones op = new Operaciones();
         int opcion;
         int esp;
         System.out.println("Seleccione una Opcion: \n1.Suma De Matrices \n2.Producto Punto \n3.Producto de un escalar \n4.Transpuesta de una Matriz. \n5.Que opcion desea: ");
@@ -36,7 +37,13 @@ public class Menu_Matrices {
      matrizA[i][j] = entrada.nextInt();
      }
     }
-    matrizA=
+     for (int i=0;i<esp;i++){
+     for (int j=0; j<esp;j++){
+     System.out.println("Ingrese numero para la matriz A: ");
+     matrizB[i][j] = entrada.nextInt();
+     }
+    }
+    matrizC = op.suma(esp,matrizA,matrizB,matrizD);
     }
         
         }
