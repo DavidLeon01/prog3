@@ -47,8 +47,13 @@ public class Menu_Matrices {
     
         for(int i=0;i<esp;i++){
         for(int j=0;j<esp;j++){
-        System.out.print("\n");}}}
+        System.out.print("\n");}}
+        }
+        case 2:{
+        System.out.println("Ingrese el numero de filas de la primera Matriz");
         
+        
+        }
         }
         
         
