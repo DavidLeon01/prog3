@@ -51,7 +51,8 @@ public class Menu_Matrices {
     
         for(int i=0;i<esp;i++){
         for(int j=0;j<esp;j++){
-        System.out.print("\n");}}
+        System.out.print(matrizC[i][j]+"\t");}
+        System.out.print("\n");}
         }
         case 2:{
         System.out.println("Ingrese el numero de filas de la primera Matriz");
@@ -66,24 +67,29 @@ public class Menu_Matrices {
         int matrizB[][] = new int [f2][c2];
         int matrizC[][] = new int [f1][c2];
         if(c1 == f2){
-        
-        for(int i=0; i<f1;i++){
-        for(int j=0;j<c1;j++){
-        System.out.println("Ingrese un numero para la matriz A:");
-        matrizA[i][j] = entrada.nextInt();
+        System.out.println("Ingrese los numeros para la matriz A: ");
+        for(int i=0;i<f1;i++){
+        for (int j=0;j<c1;j++){
+        System.out.println("Ingrese un numero para la matriz A: ");
+        matrizA[i][j]=entrada.nextInt();
         }
         }
-        
+        System.out.println("Ingrese los numeros para la matriz B: ");
         for(int i=0;i<f2;i++){
-        for(int j=0;j<c2;j++){
-           System.out.println("Ingrese un numero para la matriz B:");
-        matrizB[i][j] = entrada.nextInt();
+        for (int j=0;j<c2;j++){
+        System.out.println("Ingrese un numero para la matriz B: ");
+        matrizB[i][j]=entrada.nextInt();
         }
         }
         matrizC = op.producto(f1,c1,f2,c2,matrizA,matrizB);
-        f
-        
+        for(int i=0;i<f1;i++){
+        for(int j=0;j<c2;j++){
+        System.out.print(matrizC[i][j]+"");
         }
+        System.out.println("\n");
+        }
+        }else{
+        System.out.println("Las dimensiones no cumplen los criterios del producto punto");}
         }
         }
         
