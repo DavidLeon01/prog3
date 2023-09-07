@@ -44,7 +44,10 @@ public class Menu_Matrices {
      }
     }
     matrizC = op.suma(esp,matrizA,matrizB,matrizD);
-    }
+    
+        for(int i=0;i<esp;i++){
+        for(int j=0;j<esp;j++){
+        System.out.print("\n");}}}
         
         }
         
