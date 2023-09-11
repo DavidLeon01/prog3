@@ -18,4 +18,18 @@ public class Pr2 {
                 arreglo[i] = random.nextDouble();
             }
 
-}
+            // SE Clona el arreglo para cada método de ordenamiento
+            double[] arrgloburbuja = arreglo.clone();
+            double[] arrgloinsercion = arreglo.clone();
+            double[] arrgloseleccion = arreglo.clone();
+            double[] arrglomargesort = arreglo.clone();
+
+            long Ti, Fnl;
+
+            // Medir el tiempo en nanoseg para el método de ordenamiento burbuja
+            Ti = System.nanoTime();
+            Operaciones.Ordenamientoburbuja(arrgloburbuja);
+            Fnl = System.nanoTime();
+            long TB = Fnl - Ti;
+
+        }}}
