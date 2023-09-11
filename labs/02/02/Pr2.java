@@ -32,4 +32,10 @@ public class Pr2 {
             Fnl = System.nanoTime();
             long TB = Fnl - Ti;
 
+            // Medir el tiempo en nanoseg para el método de ordenamiento por inserción
+            Ti = System.nanoTime();
+            Operaciones.Ordenamientoinsercion(arrgloinsercion);
+            Fnl = System.nanoTime();
+            long TI = Fnl - Ti;
+
         }}}
