@@ -38,4 +38,20 @@ public class Pr2 {
             Fnl = System.nanoTime();
             long TI = Fnl - Ti;
 
-        }}}
+            // Medir el tiempo en nanoseg para el método de ordenamiento por selección
+            Ti = System.nanoTime();
+            Operaciones.Ordenamientoseleccion(arrgloseleccion);
+            Fnl = System.nanoTime();
+            long TS = Fnl - Ti;
+
+            // Medir el tiempo en nanoseg para el método de ordenamiento mergesort
+            Ti = System.nanoTime();
+            Operaciones.Ordenamientomergesort(arrglomargesort, 0, arrglomargesort.length - 1);
+            Fnl = System.nanoTime();
+            long TM = Fnl - Ti;
+
+            // Imprime los resultados en forma de tabla de comparacion
+            System.out.printf("%17d | %13d | %14d | %13d | %15d%n", mtd, TB, TI, TS, TM);
+        }
+    }
+}
