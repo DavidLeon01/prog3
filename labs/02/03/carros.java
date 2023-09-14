@@ -2,34 +2,39 @@
 import java.util.Arrays;
 import java.util.Comparator;
 import javax.swing.table.DefaultTableModel;
-
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-
-/**
- *
- * @author DavidLeon
- */
 public class carros extends javax.swing.JFrame {
     int i=0;
     DefaultTableModel modelo;
-
    
     public class Carros{
+
         String marca;
         int modelo;
         String color;
         int kilometraje;
-        
+
         public Carros(String marca, int modelo, String color, int kilometraje){
             this.marca=marca;
             this.modelo=modelo;
             this.color=color;
             this.kilometraje=kilometraje;
         }
+        
+        public int getModelo() {
+            return modelo;
+        }
+        public int getKilometraje() {
+            return kilometraje;
+        }
+        public String getMarca() {
+            return marca;
+        }
+        public String getColor() {
+            return color;
+        }
     }
+    
+    
     
     Carros[] carritos = new Carros[10];
     
@@ -40,61 +45,7 @@ public class carros extends javax.swing.JFrame {
         modelo.addColumn("Modelo");
         modelo.addColumn("Color");
         modelo.addColumn("Kilometraje");
-        this.Tabla1.setModel(modelo);
-    }
-    public static void mergeSort(Carros[] arr, int left, int right) {
-        if (left < right) {
-            int middle = (left + right) / 2;
-            mergeSort(arr, left, middle);
-            mergeSort(arr, middle + 1, right);
-            merge(arr, left, middle, right);
-        }
-    }
-
-    // Método para combinar dos subarreglos ordenados
-    public static void merge(Carros[] arr, int left, int middle, int right) {
-        int n1 = middle - left + 1;
-        int n2 = right - middle;
-
-        // Crear arreglos temporales
-        Carros[] leftArr = new Carros[n1];
-        Carros[] rightArr = new Carros[n2];
-
-        // Copiar datos a los arreglos temporales leftArr[] y rightArr[]
-        for (int i = 0; i < n1; ++i) {
-            leftArr[i] = arr[left + i];
-        }
-        for (int j = 0; j < n2; ++j) {
-            rightArr[j] = arr[middle + 1 + j];
-        }
-
-        // Combinar los arreglos temporales
-        int i = 0, j = 0;
-        int k = left;
-        while (i < n1 && j < n2) {
-            if (leftArr[i].modelo <= rightArr[j].modelo) {
-                arr[k] = leftArr[i];
-                i++;
-            } else {
-                arr[k] = rightArr[j];
-                j++;
-            }
-            k++;
-        }
-
-        // Copiar elementos restantes de leftArr[], si los hay
-        while (i < n1) {
-            arr[k] = leftArr[i];
-            i++;
-            k++;
-        }
-
-        // Copiar elementos restantes de rightArr[], si los hay
-        while (j < n2) {
-            arr[k] = rightArr[j];
-            j++;
-            k++;
-        }
+        this.tbl1.setModel(modelo);
     }
 
     /**
@@ -109,7 +60,7 @@ public class carros extends javax.swing.JFrame {
         jProgressBar1 = new javax.swing.JProgressBar();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        Tabla1 = new javax.swing.JTable();
+        tbl1 = new javax.swing.JTable();
         marca = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         txtmodelo = new javax.swing.JTextField();
@@ -128,7 +79,7 @@ public class carros extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel5.setText("VENTA DE CARROS.");
 
-        Tabla1.setModel(new javax.swing.table.DefaultTableModel(
+        tbl1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -139,7 +90,7 @@ public class carros extends javax.swing.JFrame {
                 "Marca", "Modelo", "Color", "Kilometraje"
             }
         ));
-        jScrollPane2.setViewportView(Tabla1);
+        jScrollPane2.setViewportView(tbl1);
 
         marca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,6 +102,12 @@ public class carros extends javax.swing.JFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        txtmodelo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtmodeloActionPerformed(evt);
             }
         });
 
@@ -222,7 +179,8 @@ public class carros extends javax.swing.JFrame {
                                 .addComponent(jButton2))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(33, 33, 33)
-                        .addComponent(jButton3))))
+                        .addComponent(jButton3)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -292,34 +250,50 @@ public class carros extends javax.swing.JFrame {
     }//GEN-LAST:event_agregarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-     int fila=Tabla1.getRowCount();
+     int fila=tbl1.getRowCount();
      for(int i=fila-1;i>=0;i--){
      modelo.removeRow(i);
      }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-   
-     mergeSort(carritos, 0, carritos.length - 1);
-
-    // Limpiar el modelo de la tabla
-    int rowCount = modelo.getRowCount();
-    for (int i = rowCount - 1; i >= 0; i--) {
-        modelo.removeRow(i);
+  int fila = tbl1.getRowCount();
+    for (int x = fila - 1; x >= 0; x--) {
+        modelo.removeRow(x);
     }
-
-    // Agregar los carros ordenados al modelo de la tabla
-    for (Carros carro : carritos) {
-        if (carro != null) {
-            String[] info = new String[10];
-            info[0] = carro.marca;
-            info[1] = String.valueOf(carro.modelo);
-            info[2] = carro.color;
-            info[3] = String.valueOf(carro.kilometraje);
-            modelo.addRow(info);
+    
+    int[] modelos=new int[i];
+    for(int x=0; x<modelos.length;x++){
+        modelos[x]=carritos[x].getModelo();
+    }
+    
+    for (int x=0; x<modelos.length-1; x++){
+        for (int y=0; y<modelos.length-1-x; y++){
+            if (modelos[y]>modelos[y+1]){
+                int temp=modelos[y];
+                modelos[y]=modelos[y+1];
+                modelos[y+1]=temp;
+            }
         }
     }
+    for (int x=0; x<modelos.length; x++){
+        for (int y=0; y<modelos.length; y++){
+            if (modelos[x]==carritos[y].getModelo()){
+                String []info=new String[4];
+                info[0]=carritos[y].getMarca();
+                info[1]=String.valueOf(carritos[y].getModelo());
+                info[2]=carritos[y].getColor();
+                info[3]=String.valueOf(carritos[y].getKilometraje());
+                modelo.addRow(info);
+            }
+        }
+    }
+
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void txtmodeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtmodeloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtmodeloActionPerformed
 
     /**
      * @param args the command line arguments
@@ -357,7 +331,6 @@ public class carros extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable Tabla1;
     private javax.swing.JButton agregar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -370,6 +343,7 @@ public class carros extends javax.swing.JFrame {
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField marca;
+    private javax.swing.JTable tbl1;
     private javax.swing.JTextField txtcolor;
     private javax.swing.JTextField txtkilometraje;
     private javax.swing.JTextField txtmodelo;
