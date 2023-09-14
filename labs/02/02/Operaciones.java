@@ -1,4 +1,4 @@
-package com.mycompany.pr2;
+
 import java.util.Random;
 
 class Operaciones {
