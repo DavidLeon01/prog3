@@ -53,4 +53,7 @@ class Asignatura {
       public void setHorario(String horario){
     this.horario=horario;
     }
+      public String toString(){
+      return String.format("%-7d %-35s%5d%7s",codigo,nombre,numero_creditos,horario);
+      }
 }

@@ -35,13 +35,15 @@ int creditos= 0;
 int creditostemp=0;
 String preg;
 while(creditos<5){
+int codigo = Entrada.readInt("Ingrese el codigo de la asignatura: ");Entrada.crc();
 String nombre_asignatura = Entrada.readText("Ingrese el nombre de la asignatura:");
-int codigo = Entrada.readInt("Ingrese el codigo de la asignatura: ");Entrada.mtd();
-int semestre = Entrada.readInt("Ingrese el semestre en el que esta: ");Entrada.mtd();
-int numero_credito = Entrada.readInt("Ingrese el numero de creditos: ");Entrada.mtd();
-String hora = Entrada.readText("Ingrese el horario: ");
-materias.add(new Asignatura(codigo,nombre_asignatura,semestre,numero_credito,hora));
+int semestre = Entrada.readInt("Ingrese el semestre en el que esta: ");Entrada.crc();
+int numero_credito = Entrada.readInt("Ingrese el numero de creditos: ");Entrada.crc();
+String horar = Entrada.readText("Ingrese el horario: ");
+materias.add(new Asignatura(codigo,nombre_asignatura,semestre,numero_credito,horar));
 creditos=creditos+numero_credito;
+}
+if(creditos>=5){
 }
     }
     

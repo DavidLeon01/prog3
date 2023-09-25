@@ -12,11 +12,19 @@ import java.util.LinkedList;
  */
 class Salida {
 
-    static void exit_Asignatura(LinkedList<Asignatura> materias) {
-    
+    static void exit_Asignatura(LinkedList<Asignatura> materiass) {
+    for(int i=0;i<materiass.size();i++){
+    Asignatura temporal=materiass.get(i);
+    System.out,println("Asignatura: "+temporal.getNombre());
+    System.out,println("Codigo"+temporal.getCodigo());
+    System.out,println("Semestre: "+temporal.getSemestre());
+    System.out,println("Creditos: "+temporal.getNumero_creditos();
+    System.out,println("Horario de clase: "+ temporal.getHorario());
+    }
     }
 
-    static void exit(String ingrese_las_Asignaturas_a_inscribir) {
+    static void exit(String a){
+        System.out.println(a);
     }
 }
 
