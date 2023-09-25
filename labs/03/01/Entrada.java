@@ -15,5 +15,9 @@ class Entrada {
 
     static int readInt(String ingrese_el_semestre) {
     }
+
+    static void mtd() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }
