@@ -1,4 +1,5 @@
 
+import static java.sql.DriverManager.println;
 import java.util.LinkedList;
 
 /*
@@ -15,11 +16,11 @@ class Salida {
     static void exit_Asignatura(LinkedList<Asignatura> materiass) {
     for(int i=0;i<materiass.size();i++){
     Asignatura temporal=materiass.get(i);
-    System.out,println("Asignatura: "+temporal.getNombre());
-    System.out,println("Codigo"+temporal.getCodigo());
-    System.out,println("Semestre: "+temporal.getSemestre());
-    System.out,println("Creditos: "+temporal.getNumero_creditos();
-    System.out,println("Horario de clase: "+ temporal.getHorario());
+    System.out.println("Asignatura: "+temporal.getNombre());
+    System.out.println("Codigo"+temporal.getCodigo());
+    System.out.println("Semestre: "+temporal.getSemestre());
+    System.out.println("Creditos: "+temporal.getNumero_creditos());
+    System.out.println("Horario de clase: "+ temporal.getHorario());
     }
     }
 

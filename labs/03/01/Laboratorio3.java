@@ -1,10 +1,8 @@
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.LinkedList;
 import java.util.Queue;
-
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
 
 /**
  *
@@ -22,7 +20,7 @@ public class Laboratorio3 {
  registro_asignaturas();
  Salida.exit_Asignatura(materias);
     }
-private static void registro_estudiante() {
+public static void registro_estudiante() {
 String nombre = Entrada.readText("Ingrese el nombre del Estudiante: ");
 String codigo = Entrada.readText("Ingrese el codigo del Estudiante: ");
 String correo = Entrada.readText("Ingrese el correo del Estudiante: ");
@@ -30,7 +28,7 @@ int semestre = Entrada.readInt("Ingrese el semestre: ");
 Estudiante estudian = new Estudiante(nombre,codigo,correo,semestre);
 registr.add(new Registro(estudian));
     }
-    private static void registro_asignaturas() {
+    public static void registro_asignaturas(){
 int creditos= 0;
 int creditostemp=0;
 String preg;
@@ -61,12 +59,42 @@ break;
 
 }if(horar.equalsIgnoreCase(temp.getHorario())){
 System.out.println("Horario inscrito anteriormente");
+creditos=creditostemp;
 }
 }
     }
     
+    }else{
+    
     }
 }
     }
+    public static void reporte_rgs_final(){
+    }
+    public static void lec_archivo(){
+    FileReader archi;
+    BufferedReader lector;
+    String mensaje= "",lec;
     
+    try{
+    archi = new FileReader("C:\\Users\\DavidLeon\\Documents\\NetBeansProjects\\laboratorio3\\src\\main\\java\\asignaturas.txt");
+    if(archi.ready()){
+    lector = new BufferedReader(archi);
+    while((lec=lector.readLine())!=null){
+    mensaje = mensaje+lec+"\n";
+    }
+    }else{
+    System.out.println("El archivo no esta listo para ser leido");
+    }
+    }catch(Exception e){
+    System.out.println(e.getMessage());
+    
+    }
+    System.out.println(mensaje);
+    }
+    public static void exit_Asignatura(){
+    for(Asignatura asignatura : materias){
+    System.out.println("Asignatura: "+asignatura.getCodigo());
+    }
+    }
 }
