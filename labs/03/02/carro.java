@@ -42,7 +42,7 @@ public class carro {
    public String getsalidaP(){
    return SalidaP;
    }
-   public void setgetsalidaP(String SalidaP){
+   public void setsalidaP(String SalidaP){
    this.SalidaP=SalidaP;
        }
 
