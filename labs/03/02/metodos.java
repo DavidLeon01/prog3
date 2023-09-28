@@ -60,8 +60,17 @@ e.printStackTrace();
 }
 return carroe;
 }
+public double Pago(){
+double a_pagar=0.0;
 
-
+for(carro carro1 : listaCarros){
+a_pagar=a_pagar+carro1.calcular();
+}
+return a_pagar;
+}
+public int catidadcarros(){
+return listaCarros.size();
+}
 
 
 }

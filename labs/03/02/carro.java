@@ -45,5 +45,21 @@ public class carro {
    public void setgetsalidaP(String SalidaP){
    this.SalidaP=SalidaP;
        }
+
+    double calcular() {
+int time_m = mtdtime_m();
+switch(tipo){
+    case "opcion1":
+        return time_m *0.60;
+    case "opcion 2":
+        return time_m *0.30;
+    case "opcion 3":
+        return time_m *0.20;
+    default:
+        return 0.0;
+}
+
+    }
+    public int mtdtime_m(){}
    
 }
