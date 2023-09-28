@@ -68,7 +68,7 @@
                                           <Component id="opcion3" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="jScrollPane1" min="-2" pref="204" max="-2" attributes="0"/>
+                                      <Component id="tablero" min="-2" pref="204" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -117,7 +117,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="opcion3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                  <Component id="tablero" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -184,6 +184,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="GUARDAR"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
@@ -222,7 +225,7 @@
         <Property name="text" type="java.lang.String" value="DLEON  PARKING."/>
       </Properties>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+    <Container class="javax.swing.JScrollPane" name="tablero">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>

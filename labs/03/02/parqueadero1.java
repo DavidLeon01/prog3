@@ -1,3 +1,12 @@
+import java.text.ParseException;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import javax.swing.*;
+import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -40,7 +49,7 @@ public class parqueadero1 extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         pago = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        tablero = new javax.swing.JScrollPane();
         pantalla = new javax.swing.JTextArea();
         jLabel7 = new javax.swing.JLabel();
         ingreso = new javax.swing.JTextField();
@@ -64,6 +73,11 @@ public class parqueadero1 extends javax.swing.JFrame {
         opcion3.setText("BICICLETA");
 
         jButton1.setText("GUARDAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("VEHICULO:");
 
@@ -84,7 +98,7 @@ public class parqueadero1 extends javax.swing.JFrame {
 
         pantalla.setColumns(20);
         pantalla.setRows(5);
-        jScrollPane1.setViewportView(pantalla);
+        tablero.setViewportView(pantalla);
 
         jLabel7.setText("HORA/INGRESO:");
 
@@ -127,7 +141,7 @@ public class parqueadero1 extends javax.swing.JFrame {
                                             .addComponent(opcion2)
                                             .addComponent(opcion3))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(tablero, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addGap(27, 27, 27)
@@ -161,7 +175,7 @@ public class parqueadero1 extends javax.swing.JFrame {
                         .addComponent(opcion2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(opcion3))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tablero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -196,6 +210,28 @@ public class parqueadero1 extends javax.swing.JFrame {
     String buscar = vehiculosalir.getText();
 
     }//GEN-LAST:event_vehiculosalirActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String tipo = "";
+        if(opcion1.isSelected()){
+        tipo="opcion1";
+        }else if(opcion2.isSelected()){
+        tipo="opcion2";
+        }else if(opcion3.isSelected()){
+        tipo="opcion3";
+        }
+        Date fecha = new Date();
+        SimpleDateFormat horaf = new SimpleDateFormat("HH:mm:ss");
+        String hora = horaf.format(fecha);
+        
+        String placaText = placa.getText();
+         
+        carro carro1 = new carro(placaText,tipo,hora);
+        listaCarros.add(carro1);
+        IngresoP.setText(hora);
+        
+        tablero.append("Tipo: "+tipo+", Placa: "+placaText+", Hora de Ingreso: "+hora+"\n");
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -243,13 +279,13 @@ public class parqueadero1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JRadioButton opcion1;
     private javax.swing.JRadioButton opcion2;
     private javax.swing.JRadioButton opcion3;
     private javax.swing.JTextField pago;
     private javax.swing.JTextArea pantalla;
     private javax.swing.JTextField salida;
+    private javax.swing.JScrollPane tablero;
     private javax.swing.JTextField tplaca;
     private javax.swing.JTextField vehiculosalir;
     // End of variables declaration//GEN-END:variables

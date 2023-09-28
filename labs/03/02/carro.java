@@ -60,6 +60,16 @@ switch(tipo){
 }
 
     }
-    public int mtdtime_m(){}
-   
+    public int mtdtime_m(){
+   try {
+    SimpleDateFormat horaf = new SimpleDateFormat("HH:mm:ss");
+    Date IngresoPDate = horaf.parse(IngresoP);
+    Date SalidaPDate = horaf.parse(SalidaP);
+    long diferenciamls = SalidaPDate.getTime()-IngresoPDate.getTime();
+    return(int)(diferenciamls/(3*1000));
+}catch(ParseException e){
+e.printStackTrace();
+return 0;
+}
+}
 }
