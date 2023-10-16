@@ -65,12 +65,12 @@ List<LectorCsvArhivo> lectores = new ArrayList<>();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        filtro1 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jbotoncargar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        Generar = new javax.swing.JButton();
+        Barras = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -87,21 +87,31 @@ List<LectorCsvArhivo> lectores = new ArrayList<>();
 
         jLabel5.setText("Variable a explorar:");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        filtro1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                filtro1ActionPerformed(evt);
             }
         });
 
         jLabel6.setText("Click:");
 
-        jButton1.setText("Cargar Datos");
+        jbotoncargar.setText("Cargar Datos");
+        jbotoncargar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbotoncargarActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Seleccionar grafico:");
 
-        jButton2.setText("Grafico de Torta");
+        Generar.setText("Grafico de Torta");
+        Generar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GenerarActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Grafico de Barras");
+        Barras.setText("Grafico de Barras");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -130,7 +140,7 @@ List<LectorCsvArhivo> lectores = new ArrayList<>();
                         .addGap(54, 54, 54)
                         .addComponent(jLabel6)
                         .addGap(41, 41, 41)
-                        .addComponent(jButton1))
+                        .addComponent(jbotoncargar))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,12 +151,12 @@ List<LectorCsvArhivo> lectores = new ArrayList<>();
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(filtro1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton3)
-                            .addComponent(jButton2)))
+                            .addComponent(Barras)
+                            .addComponent(Generar)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(137, 137, 137)
                         .addComponent(jLabel1)))
@@ -168,18 +178,18 @@ List<LectorCsvArhivo> lectores = new ArrayList<>();
                         .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(filtro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel6))
-                    .addComponent(jButton1))
+                    .addComponent(jbotoncargar))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
+                        .addComponent(Generar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3))
+                        .addComponent(Barras))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
@@ -187,9 +197,48 @@ List<LectorCsvArhivo> lectores = new ArrayList<>();
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void filtro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filtro1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_filtro1ActionPerformed
+
+    private void jbotoncargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbotoncargarActionPerformed
+CargarDatos();        // TODO add your handling code here:
+    }//GEN-LAST:event_jbotoncargarActionPerformed
+
+    private void GenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarActionPerformed
+       String filtro = filtro1.getText();
+       int n1=0,n2=0,n3=0,n4=0,n5=0,n6,n7,n8,n9,n10,n11,n12,n13,n14,n15;
+       int contDEU,contBRA,contCHN,contUSA,contFRA,contIND,contITA,contJPN,contGBR,contARG;
+       int contadorPregrado=0,contadorPostgrado=0,contadorPrimaria=0,contadorBachillerato = 0, contadorNoIndica = 0,contfem=0,contmas=0;
+       
+       try{
+       for(LectorCsvArhivo lector : lectores){
+        if (filtro.equalsIgnoreCase("nivel academico")){
+        switch (lector.getNivelAcademico().toUpperCase()){
+            case "PREGRADO":
+                n1=contadorPregado++;
+                break;
+            case "POSTGRADO":
+                   n2= contadorPostgrado++;
+                    break;
+                case "PRIMARIA":
+                   n3= contadorPrimaria++;
+                    break;
+                case "BACHILLERATO":
+                   n4= contadorBachillerato++;
+                    break;
+                case "NO INDICA":
+                   n5= contadorNoIndica++;
+                   break;
+        }
+        
+        
+      
+        }
+        }
+       }
+       }
+    }//GEN-LAST:event_GenerarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -227,9 +276,9 @@ List<LectorCsvArhivo> lectores = new ArrayList<>();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton Barras;
+    private javax.swing.JButton Generar;
+    private javax.swing.JTextField filtro1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -238,6 +287,6 @@ List<LectorCsvArhivo> lectores = new ArrayList<>();
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton jbotoncargar;
     // End of variables declaration//GEN-END:variables
 }
