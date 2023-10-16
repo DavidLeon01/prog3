@@ -72,20 +72,26 @@ List<LectorCsvArhivo> lectores = new ArrayList<>();
         Generar = new javax.swing.JButton();
         Barras = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 255, 51));
-        jLabel1.setText("Datos Estadisticos.");
+        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel1.setText("Datos Estadisticos D´León.");
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
         jLabel2.setText("-Genero");
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
         jLabel3.setText("-Nivel Academico");
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
         jLabel4.setText("-Pais");
 
-        jLabel5.setText("Variable a explorar:");
+        jLabel5.setFont(new java.awt.Font("Segoe UI Historic", 0, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel5.setText("Digite la Variable a explorar:");
 
         filtro1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,8 +99,12 @@ List<LectorCsvArhivo> lectores = new ArrayList<>();
             }
         });
 
-        jLabel6.setText("Click:");
+        jLabel6.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 0, 51));
+        jLabel6.setText("2. Click:");
 
+        jbotoncargar.setBackground(new java.awt.Color(255, 255, 51));
+        jbotoncargar.setFont(new java.awt.Font("Sitka Display", 3, 24)); // NOI18N
         jbotoncargar.setText("Cargar Datos");
         jbotoncargar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,8 +112,12 @@ List<LectorCsvArhivo> lectores = new ArrayList<>();
             }
         });
 
-        jLabel7.setText("Seleccionar grafico:");
+        jLabel7.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel7.setText("3. Seleccione el tipo de grafico a ver :");
 
+        Generar.setBackground(new java.awt.Color(255, 255, 51));
+        Generar.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
         Generar.setText("Grafico de Torta");
         Generar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,6 +125,8 @@ List<LectorCsvArhivo> lectores = new ArrayList<>();
             }
         });
 
+        Barras.setBackground(new java.awt.Color(255, 255, 51));
+        Barras.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
         Barras.setText("Grafico de Barras");
         Barras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,12 +138,16 @@ List<LectorCsvArhivo> lectores = new ArrayList<>();
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 198, Short.MAX_VALUE)
+            .addGap(0, 268, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 201, Short.MAX_VALUE)
         );
+
+        jLabel8.setFont(new java.awt.Font("Showcard Gothic", 0, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel8.setText("1.tipo de variables.");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -136,67 +156,70 @@ List<LectorCsvArhivo> lectores = new ArrayList<>();
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(jLabel6)
-                        .addGap(41, 41, 41)
-                        .addComponent(jbotoncargar))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(100, 100, 100)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(6, 6, 6)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(filtro1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jbotoncargar)
+                                    .addComponent(filtro1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Barras)
-                            .addComponent(Generar)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Generar)
+                                    .addComponent(Barras))))
+                        .addGap(30, 30, 30)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(137, 137, 137)
+                        .addGap(206, 206, 206)
                         .addComponent(jLabel1)))
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(38, 38, 38)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(24, 24, 24)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(filtro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel6))
+                .addComponent(jLabel4)
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(filtro1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
                     .addComponent(jbotoncargar))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Generar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Barras))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Generar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)
+                        .addComponent(Barras, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();
@@ -623,9 +646,38 @@ if (filtro.equalsIgnoreCase("nivel academico")) {
        repaint();
 
 }
-       
-       }   
+  if (filtro.equalsIgnoreCase("nivel academico")) {
+        System.out.println("Usuarios con nivel de Pregrado: " + contadorPregrado);
+        System.out.println("Usuarios con nivel Postgrado: " + contadorPostgrado);
+        System.out.println("Usuarios con nivel Primaria: " + contadorPrimaria);
+        System.out.println("Usuarios con nivel Bachillerato: " + contadorBachillerato);
+        System.out.println("Usuarios que no especifican su nivel academico: " + contadorNoIndica);
+        
+             
+    }
+    if (filtro.equalsIgnoreCase("genero")) {
+     System.out.println("Usuarios del genero masculino : " + contmas);
+     System.out.println("Usuarios del genero femenino  : " + contfem);
+    }if (filtro.equalsIgnoreCase("pais")) {
+     System.out.println("Usuarios que actualmente viven en Alemania: " + contDEU);
+     System.out.println("Usuarios que actualmente viven en Brasil: " + contBRA);
+     System.out.println("Usuarios que actualmente viven en China: " + contCHN);
+     System.out.println("Usuarios que actualmente viven en Estados Unidos: " + contUSA);
+     System.out.println("Usuarios que actualmente viven en Francia: " + contFRA);
+     System.out.println("Usuarios que actualmente viven en la India: " + contIND);
+     System.out.println("Usuarios que actualmente viven en Italia: " + contITA);
+     System.out.println("Usuarios que actualmente viven en Japón: " + contJPN);
+     System.out.println("Usuarios que actualmente viven en Reino Unido: " + contGBR);
+      System.out.println("Usuarios que actualmente viven en Argentina: " + contARG);
+    }if (filtro.equalsIgnoreCase("Grupo Edad")) {
+     System.out.println("Usuarios Adultos:: " + contAdult);
+     System.out.println("Usuarios Adultos Jovenes: " + contAdultJ);
+    } 
 
+}
+     
+ catch (Exception e) {
+}
     }//GEN-LAST:event_BarrasActionPerformed
 
     /**
@@ -674,6 +726,7 @@ if (filtro.equalsIgnoreCase("nivel academico")) {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jbotoncargar;
     // End of variables declaration//GEN-END:variables
