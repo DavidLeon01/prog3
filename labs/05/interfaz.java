@@ -208,15 +208,16 @@ CargarDatos();        // TODO add your handling code here:
     private void GenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarActionPerformed
        String filtro = filtro1.getText();
        int n1=0,n2=0,n3=0,n4=0,n5=0,n6,n7,n8,n9,n10,n11,n12,n13,n14,n15;
-       int contDEU,contBRA,contCHN,contUSA,contFRA,contIND,contITA,contJPN,contGBR,contARG;
+       int contDEU=0,contBRA=0,contCHN=0,contUSA=0,contFRA=0,contIND=0,contITA=0,contJPN=0,contGBR=0,contARG=0;
        int contadorPregrado=0,contadorPostgrado=0,contadorPrimaria=0,contadorBachillerato = 0, contadorNoIndica = 0,contfem=0,contmas=0;
-       
+       int contAdult=0;
+       int contAdultJ=0;
        try{
        for(LectorCsvArhivo lector : lectores){
         if (filtro.equalsIgnoreCase("nivel academico")){
         switch (lector.getNivelAcademico().toUpperCase()){
             case "PREGRADO":
-                n1=contadorPregado++;
+                n1=contadorPregrado++;
                 break;
             case "POSTGRADO":
                    n2= contadorPostgrado++;
@@ -231,13 +232,200 @@ CargarDatos();        // TODO add your handling code here:
                    n5= contadorNoIndica++;
                    break;
         }
-        
-        
-      
+        DefaultCategoryDataset datos=new DefaultCategoryDataset();
+        datos.setValue(n1, "Nivel de estudio", "Pregrado");
+        datos.setValue(n2, "Nivel de estudio", "Postgrado");
+        datos.setValue(n3, "Nivel de estudio", "Primaria");
+        datos.setValue(n4, "Nivel de estudio", "Bachillerato");
+        datos.setValue(n5, "Nivel de estudio", "No indica");
+        }
+        else if(filtro.equalsIgnoreCase("genero")){
+        switch(lector.getGenero().toUpperCase()){
+            case "MASCULINO":
+                contmas++;
+           break;
+           case"FEMENINO":
+               contfem++;
+               break;
         }
         }
+        else if(filtro.equalsIgnoreCase("pais")){
+        switch (lector.getCodigo().toUpperCase()){
+            case"DEU":
+                contDEU++;
+                break;
+            case"BRA":
+                contBRA++;
+                break;
+             case"CHN":
+                 contCHN++;
+                 break;
+             case"USA":
+                 contUSA++;
+                 break;
+            case"FRA":
+                contFRA++;
+                break;
+            case"IND":
+                contIND++;
+                break;
+            case"ITA":
+                contITA++;
+                break;
+            case"JPN":
+                contJPN++;
+                break;
+            case"GBR":
+                contGBR++;
+                break;
+            case"ARG":
+                contARG++;
+                break;
+        }
+        }
+         else if (filtro.equalsIgnoreCase("Grupo Edad")){
+        switch (lector.getGrupoEdad().toUpperCase()){
+            case "ADULTO":
+                    contAdult++;
+                    break;
+                case "ADULTO JOVEN":
+                    contAdultJ++;
+                    break;
+        
+        }
+        
+        }
        }
-       }
+       DefaultPieDataset datos=new DefaultPieDataset();
+if (filtro.equalsIgnoreCase("nivel academico")) {
+    datos.setValue("Pregrado", contadorPregrado);
+    datos.setValue("Postgrado", contadorPostgrado);
+    datos.setValue("Primaria", contadorPrimaria);
+    datos.setValue("Bachillerato", contadorBachillerato);
+    datos.setValue("No indica", contadorNoIndica);
+    JFreeChart grafico_circular =ChartFactory.createPieChart(
+        "Nivel de estudio 10 Potencias Mundiales",
+        datos,
+        true,
+        true,
+        false
+        );
+    ChartPanel panel = new ChartPanel(grafico_circular);
+       panel.setMouseWheelEnabled(true);
+       panel.setPreferredSize(new Dimension(300,300));
+        
+       jPanel1.setLayout(new BorderLayout());
+       jPanel1.add(panel,BorderLayout.NORTH);
+       pack();
+       repaint();
+}else if (filtro.equalsIgnoreCase("Genero")) {
+    datos.setValue("Masculino", contmas);
+    datos.setValue("Femenino", contfem);
+    JFreeChart grafico_circular =ChartFactory.createPieChart(
+        "Identidad de Genero de Potencias Mundiales",
+        datos,
+        true,
+        true,
+        false
+        );
+        ChartPanel panel = new ChartPanel(grafico_circular);
+       panel.setMouseWheelEnabled(true);
+       panel.setPreferredSize(new Dimension(300,300));
+       
+       jPanel1.setLayout(new BorderLayout());
+       jPanel1.add(panel,BorderLayout.NORTH);
+       pack();
+       repaint();
+}else if (filtro.equalsIgnoreCase("pais")) {
+    datos.setValue("DEU", contDEU);
+    datos.setValue("BRA", contBRA);
+    datos.setValue("CHN", contCHN);
+    datos.setValue("USA", contUSA);
+    datos.setValue("FRA", contFRA);
+    datos.setValue("IND", contIND);
+    datos.setValue("ITA", contITA);
+    datos.setValue("JPN", contJPN);
+    datos.setValue("GBR", contGBR);
+    datos.setValue("ARG", contARG);
+    JFreeChart grafico_circular =ChartFactory.createPieChart(
+        "Potencias Mundiales ",
+        datos,
+        true,
+        true,
+        false
+        );
+       ChartPanel panel = new ChartPanel(grafico_circular);
+       panel.setMouseWheelEnabled(true);
+       panel.setPreferredSize(new Dimension(300,300));
+       
+       jPanel1.setLayout(new BorderLayout());
+       jPanel1.add(panel,BorderLayout.NORTH);
+       pack();
+       repaint();
+}else if (filtro.equalsIgnoreCase("Grupo Edad")) {
+    datos.setValue("Adulto", contAdult);
+    datos.setValue("Adulto joven", contAdultJ);
+    JFreeChart grafico_circular =ChartFactory.createPieChart(
+        "Rango de edad POTENCIAS MUNDIALES",
+        datos,
+        true,
+        true,
+        false
+        );
+       ChartPanel panel = new ChartPanel(grafico_circular);
+       panel.setMouseWheelEnabled(true);
+       panel.setPreferredSize(new Dimension(300,300));
+       
+       jPanel1.setLayout(new BorderLayout());
+       jPanel1.add(panel,BorderLayout.NORTH);
+       pack();
+       repaint();
+}
+
+//MSTR
+if (filtro.equalsIgnoreCase("nivel academico")) {
+        System.out.println("Pregrado: " + contadorPregrado);
+        System.out.println("Postgrado: " + contadorPostgrado);
+        System.out.println("Primaria: " + contadorPrimaria);
+        System.out.println("Bachillerato: " + contadorBachillerato);
+        System.out.println("No indica: " + contadorNoIndica);
+        
+             
+    }
+    if (filtro.equalsIgnoreCase("genero")) {
+     System.out.println("masculino: " + contmas);
+     System.out.println("femenino: " + contfem);
+    }
+    
+     if (filtro.equalsIgnoreCase("pais")) {
+     System.out.println("DEU: " + contDEU);
+     System.out.println("BRA: " + contBRA);
+     System.out.println("CHN: " + contCHN);
+     System.out.println("USA: " + contUSA);
+     System.out.println("FRA: " + contFRA);
+     System.out.println("IND: " + contIND);
+     System.out.println("ITA: " + contITA);
+     System.out.println("JPN: " + contJPN);
+     System.out.println("GBR: " + contGBR);
+     System.out.println("ARG: " + contARG);
+     }
+    
+     if (filtro.equalsIgnoreCase("Grupo Edad")) {
+     System.out.println("Adulto: " + contAdult);
+     System.out.println("Adulto joven: " + contAdultJ);
+    } 
+     
+     
+     
+     
+     
+     
+     
+     
+} catch (Exception e) {
+    e.printStackTrace();
+}
+    
     }//GEN-LAST:event_GenerarActionPerformed
 
     /**
