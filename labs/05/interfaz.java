@@ -112,6 +112,11 @@ List<LectorCsvArhivo> lectores = new ArrayList<>();
         });
 
         Barras.setText("Grafico de Barras");
+        Barras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BarrasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -427,6 +432,201 @@ if (filtro.equalsIgnoreCase("nivel academico")) {
 }
     
     }//GEN-LAST:event_GenerarActionPerformed
+
+    private void BarrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BarrasActionPerformed
+      String filtro = filtro1.getText();
+       int n1=0,n2=0,n3=0,n4=0,n5=0,n6,n7,n8,n9,n10,n11,n12,n13,n14,n15;
+       int contDEU=0,contBRA=0,contCHN=0,contUSA=0,contFRA=0,contIND=0,contITA=0,contJPN=0,contGBR=0,contARG=0;
+       int contadorPregrado=0,contadorPostgrado=0,contadorPrimaria=0,contadorBachillerato = 0, contadorNoIndica = 0,contfem=0,contmas=0;
+       int contAdult=0;
+       int contAdultJ=0;
+       try{
+       for(LectorCsvArhivo lector : lectores){
+        if (filtro.equalsIgnoreCase("nivel academico")){
+        switch (lector.getNivelAcademico().toUpperCase()){
+            case "PREGRADO":
+                n1=contadorPregrado++;
+                break;
+            case "POSTGRADO":
+                   n2= contadorPostgrado++;
+                    break;
+                case "PRIMARIA":
+                   n3= contadorPrimaria++;
+                    break;
+                case "BACHILLERATO":
+                   n4= contadorBachillerato++;
+                    break;
+                case "NO INDICA":
+                   n5= contadorNoIndica++;
+                   break;
+        }
+        DefaultCategoryDataset datos=new DefaultCategoryDataset();
+        datos.setValue(n1, "Nivel de estudio", "Pregrado");
+        datos.setValue(n2, "Nivel de estudio", "Postgrado");
+        datos.setValue(n3, "Nivel de estudio", "Primaria");
+        datos.setValue(n4, "Nivel de estudio", "Bachillerato");
+        datos.setValue(n5, "Nivel de estudio", "No indica");
+        }
+        else if(filtro.equalsIgnoreCase("genero")){
+        switch(lector.getGenero().toUpperCase()){
+            case "MASCULINO":
+                contmas++;
+           break;
+           case"FEMENINO":
+               contfem++;
+               break;
+        }
+        }
+        else if(filtro.equalsIgnoreCase("pais")){
+        switch (lector.getCodigo().toUpperCase()){
+            case"DEU":
+                contDEU++;
+                break;
+            case"BRA":
+                contBRA++;
+                break;
+             case"CHN":
+                 contCHN++;
+                 break;
+             case"USA":
+                 contUSA++;
+                 break;
+            case"FRA":
+                contFRA++;
+                break;
+            case"IND":
+                contIND++;
+                break;
+            case"ITA":
+                contITA++;
+                break;
+            case"JPN":
+                contJPN++;
+                break;
+            case"GBR":
+                contGBR++;
+                break;
+            case"ARG":
+                contARG++;
+                break;
+        }
+        }
+         else if (filtro.equalsIgnoreCase("Grupo Edad")){
+        switch (lector.getGrupoEdad().toUpperCase()){
+            case "ADULTO":
+                    contAdult++;
+                    break;
+                case "ADULTO JOVEN":
+                    contAdultJ++;
+                    break;
+        
+        }
+        
+        }
+       }
+       DefaultCategoryDataset datos=new DefaultCategoryDataset();
+if (filtro.equalsIgnoreCase("nivel academico")) {
+    datos.setValue(n1,"Nivel de estudio","Pregrado");
+    datos.setValue(n2,"Nivel de estudio","Postgrado");
+    datos.setValue(n3,"Nivel de estudio","Primaria");
+    datos.setValue(n4,"Nivel de estudio","Bachillerato");
+    datos.setValue(n5,"Nivel de estudio","no indica");
+    JFreeChart gbarras = ChartFactory.createBarChart3D(
+      "Nivel de estudios Potencias Mundiales",
+        "Nivel de estudio",
+        "Cantidad de personas",
+        datos,
+        PlotOrientation.VERTICAL,
+        true,
+        true,
+        false
+        );
+       ChartPanel panel = new ChartPanel(gbarras);
+       panel.setMouseWheelEnabled(true);
+       panel.setPreferredSize(new Dimension(300,300));
+       
+       jPanel1.setLayout(new BorderLayout());
+       jPanel1.add(panel,BorderLayout.NORTH);
+       pack();
+       repaint();
+} else if (filtro.equalsIgnoreCase("genero")) {
+    datos.setValue(contmas,"Hombre","Masculino");
+    datos.setValue(contfem,"Mujer","Femenino");
+    JFreeChart gbarras =ChartFactory.createBarChart3D(
+        "Genero de Usuarios (Potencias Mundiales)",
+        "Genero",
+        "Cantidad de personas",
+        datos,
+        PlotOrientation.VERTICAL,
+        true,
+        true,
+        false
+        );
+       ChartPanel panel = new ChartPanel(gbarras);
+       panel.setMouseWheelEnabled(true);
+       panel.setPreferredSize(new Dimension(300,300));
+       
+       jPanel1.setLayout(new BorderLayout());
+       jPanel1.add(panel,BorderLayout.NORTH);
+       pack();
+       repaint();
+}else if(filtro.equalsIgnoreCase("pais")){
+    datos.setValue(contDEU, "PAIS ACTUAL DE VIVIENDA", "DEU");
+     datos.setValue(contBRA, "PAIS ACTUAL DE VIVIENDA", "BRA");
+      datos.setValue(contCHN, "PAIS ACTUAL DE VIVIENDA", "CHN");
+       datos.setValue(contUSA, "PAIS ACTUAL DE VIVIENDA", "USA");
+        datos.setValue(contFRA, "PAIS ACTUAL DE VIVIENDA", "FRA");
+         datos.setValue(contIND, "PAIS ACTUAL DE VIVIENDA", "IND");
+          datos.setValue(contITA, "PAIS ACTUAL DE VIVIENDA", "ITA");
+           datos.setValue(contJPN, "PAIS ACTUAL DE VIVIENDA", "JPN");
+            datos.setValue(contGBR, "PAIS ACTUAL DE VIVIENDA", "GBR");
+            datos.setValue(contARG, "PAIS ACTUAL DE VIVIENDA", "ARG");
+            JFreeChart gbarras =ChartFactory.createBarChart3D(
+        "Paises Actual donde viven los usuarios",
+        "Paises",
+        "Cantidad de personas",
+        datos,
+        PlotOrientation.VERTICAL,
+        true,
+        true,
+        false
+        );
+       ChartPanel panel = new ChartPanel(gbarras);
+       panel.setMouseWheelEnabled(true);
+       panel.setPreferredSize(new Dimension(300,300));
+       
+       jPanel1.setLayout(new BorderLayout());
+       jPanel1.add(panel,BorderLayout.NORTH);
+       pack();
+       repaint();
+
+}else if (filtro.equalsIgnoreCase("Grupo Edad")) {
+    datos.setValue(contAdult,"rango edad","Adulto");
+    datos.setValue(contAdultJ,"rango edad","Adulto joven");
+    JFreeChart gbarras =ChartFactory.createBarChart3D(
+        "Edad de Usuarios",
+        "Rango de edades ",
+        "Cantidad de personas",
+        datos,
+        PlotOrientation.VERTICAL,
+        true,
+        true,
+        false
+        );
+       ChartPanel panel = new ChartPanel(gbarras);
+       panel.setMouseWheelEnabled(true);
+       panel.setPreferredSize(new Dimension(300,300));
+       
+       jPanel1.setLayout(new BorderLayout());
+       jPanel1.add(panel,BorderLayout.NORTH);
+       pack();
+       repaint();
+
+}
+       
+       }   
+
+    }//GEN-LAST:event_BarrasActionPerformed
 
     /**
      * @param args the command line arguments
