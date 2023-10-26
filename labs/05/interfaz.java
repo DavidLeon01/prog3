@@ -7,12 +7,14 @@ package labgraficas;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
+import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
@@ -364,6 +366,12 @@ if (filtro.equalsIgnoreCase("nivel academico")) {
         true,
         false
         );
+    try {
+            ChartUtilities.saveChartAsJPEG(new File("chart.jpg"),
+                    grafico_circular, 500, 300);
+        } catch (IOException e) {
+            System.err.println("Error al crear el archivo.");
+        }
         ChartPanel panel = new ChartPanel(grafico_circular);
        panel.setMouseWheelEnabled(true);
        panel.setPreferredSize(new Dimension(300,300));
@@ -390,6 +398,12 @@ if (filtro.equalsIgnoreCase("nivel academico")) {
         true,
         false
         );
+    try {
+            ChartUtilities.saveChartAsJPEG(new File("chart.jpg"),
+                    grafico_circular, 500, 300);
+        } catch (IOException e) {
+            System.err.println("Error al crear el archivo.");
+        }
        ChartPanel panel = new ChartPanel(grafico_circular);
        panel.setMouseWheelEnabled(true);
        panel.setPreferredSize(new Dimension(300,300));
@@ -408,6 +422,12 @@ if (filtro.equalsIgnoreCase("nivel academico")) {
         true,
         false
         );
+    try {
+            ChartUtilities.saveChartAsJPEG(new File("chart.jpg"),
+                    grafico_circular, 500, 300);
+        } catch (IOException e) {
+            System.err.println("Error al crear el archivo.");
+        }
        ChartPanel panel = new ChartPanel(grafico_circular);
        panel.setMouseWheelEnabled(true);
        panel.setPreferredSize(new Dimension(300,300));
@@ -572,6 +592,12 @@ if (filtro.equalsIgnoreCase("nivel academico")) {
         true,
         false
         );
+    try {
+            ChartUtilities.saveChartAsJPEG(new File("chart.jpg"),
+                    gbarras, 500, 300);
+        } catch (IOException e) {
+            System.err.println("Error al crear el archivo.");
+        }
        ChartPanel panel = new ChartPanel(gbarras);
        panel.setMouseWheelEnabled(true);
        panel.setPreferredSize(new Dimension(300,300));
@@ -593,6 +619,12 @@ if (filtro.equalsIgnoreCase("nivel academico")) {
         true,
         false
         );
+     try {
+            ChartUtilities.saveChartAsJPEG(new File("chart.jpg"),
+                    gbarras, 500, 300);
+        } catch (IOException e) {
+            System.err.println("Error al crear el archivo.");
+        }
        ChartPanel panel = new ChartPanel(gbarras);
        panel.setMouseWheelEnabled(true);
        panel.setPreferredSize(new Dimension(300,300));
@@ -622,6 +654,12 @@ if (filtro.equalsIgnoreCase("nivel academico")) {
         true,
         false
         );
+        try {
+            ChartUtilities.saveChartAsJPEG(new File("chart.jpg"),
+                    gbarras, 500, 300);
+        } catch (IOException e) {
+            System.err.println("Error al crear el archivo.");
+        }      
        ChartPanel panel = new ChartPanel(gbarras);
        panel.setMouseWheelEnabled(true);
        panel.setPreferredSize(new Dimension(300,300));
@@ -644,6 +682,12 @@ if (filtro.equalsIgnoreCase("nivel academico")) {
         true,
         false
         );
+     try {
+            ChartUtilities.saveChartAsJPEG(new File("chart.jpg"),
+                    gbarras, 500, 300);
+        } catch (IOException e) {
+            System.err.println("Error al crear el archivo.");
+        }
        ChartPanel panel = new ChartPanel(gbarras);
        panel.setMouseWheelEnabled(true);
        panel.setPreferredSize(new Dimension(300,300));
