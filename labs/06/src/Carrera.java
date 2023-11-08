@@ -49,6 +49,8 @@ public class Carrera extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        btiniciar.setBackground(new java.awt.Color(0, 255, 153));
+        btiniciar.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         btiniciar.setText("iniciar");
         btiniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,13 +58,15 @@ public class Carrera extends javax.swing.JFrame {
             }
         });
 
-        lbl1.setText("jLabel1");
+        lbl1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/figuras 2 carrera/carro3.png"))); // NOI18N
+        lbl1.setText("\n");
 
-        lbl2.setText("jLabel1");
+        lbl2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/figuras 2 carrera/carro1.png"))); // NOI18N
 
-        lbl3.setText("jLabel1");
+        lbl3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/figuras 2 carrera/carro2.png"))); // NOI18N
 
-        lbl_barrera.setText("jLabel1");
+        lbl_barrera.setIcon(new javax.swing.ImageIcon(getClass().getResource("/figuras 2 carrera/meta.png"))); // NOI18N
+        lbl_barrera.setToolTipText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -70,41 +74,36 @@ public class Carrera extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl1)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbl2)
-                            .addComponent(lbl3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbl_barrera))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(129, 129, 129)
-                                .addComponent(btiniciar))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(lbl1)))
-                        .addGap(0, 193, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addComponent(lbl3))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_barrera)
+                .addGap(55, 55, 55))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(253, 253, 253)
+                .addComponent(btiniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(372, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addComponent(lbl1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lbl1)
+                        .addGap(33, 33, 33)
                         .addComponent(lbl2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(51, 51, 51)
                         .addComponent(lbl3))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
+                        .addContainerGap()
                         .addComponent(lbl_barrera)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
-                .addComponent(btiniciar)
-                .addGap(39, 39, 39))
+                .addGap(26, 26, 26)
+                .addComponent(btiniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
