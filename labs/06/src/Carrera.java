@@ -28,6 +28,9 @@ public class Carrera extends javax.swing.JFrame {
     public JLabel getlbl3(){
         return lbl3;
     }
+    public JLabel getlbl4(){
+        return lbl4;
+    }
     public JLabel getlbl_barrera(){
     return lbl_barrera;
     }
@@ -46,12 +49,14 @@ public class Carrera extends javax.swing.JFrame {
         lbl2 = new javax.swing.JLabel();
         lbl3 = new javax.swing.JLabel();
         lbl_barrera = new javax.swing.JLabel();
+        Bmenu = new javax.swing.JButton();
+        lbl4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btiniciar.setBackground(new java.awt.Color(0, 255, 153));
         btiniciar.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        btiniciar.setText("iniciar");
+        btiniciar.setText("INICIAR");
         btiniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btiniciarActionPerformed(evt);
@@ -68,42 +73,57 @@ public class Carrera extends javax.swing.JFrame {
         lbl_barrera.setIcon(new javax.swing.ImageIcon(getClass().getResource("/figuras 2 carrera/meta.png"))); // NOI18N
         lbl_barrera.setToolTipText("");
 
+        Bmenu.setBackground(new java.awt.Color(0, 255, 153));
+        Bmenu.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
+        Bmenu.setText("MENU");
+        Bmenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BmenuActionPerformed(evt);
+            }
+        });
+
+        lbl4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/figuras 2 carrera/carro4.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl2)
+                    .addComponent(lbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl2)
-                            .addComponent(lbl3))))
+                    .addComponent(lbl4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lbl_barrera)
                 .addGap(55, 55, 55))
             .addGroup(layout.createSequentialGroup()
-                .addGap(253, 253, 253)
+                .addGap(17, 17, 17)
                 .addComponent(btiniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(372, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addComponent(Bmenu, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(322, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_barrera)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lbl1)
-                        .addGap(33, 33, 33)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbl2)
-                        .addGap(51, 51, 51)
-                        .addComponent(lbl3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lbl_barrera)))
-                .addGap(26, 26, 26)
-                .addComponent(btiniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbl3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lbl4)
+                        .addGap(106, 106, 106)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btiniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Bmenu))))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         pack();
@@ -112,17 +132,26 @@ public class Carrera extends javax.swing.JFrame {
     private void btiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btiniciarActionPerformed
 lbl1.setLocation(0, lbl1.getLocation().y);    
 lbl2.setLocation(0, lbl2.getLocation().y);  
-lbl3.setLocation(0, lbl3.getLocation().y); 
+lbl3.setLocation(0, lbl3.getLocation().y);
+lbl4.setLocation(0, lbl4.getLocation().y); 
 
 Carrera2 hilo1 = new Carrera2(lbl1, this);
 Carrera2 hilo2 = new Carrera2(lbl2, this);
 Carrera2 hilo3 = new Carrera2(lbl3, this);
+Carrera2 hilo4 = new Carrera2(lbl4, this);
 
 
 hilo1.start();
 hilo2.start();
-hilo3.start();// TODO add your handling code here:
+hilo3.start();
+hilo4.start();// TODO add your handling code here:
     }//GEN-LAST:event_btiniciarActionPerformed
+
+    private void BmenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BmenuActionPerformed
+        Menu abrir = new Menu();
+        abrir.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_BmenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,10 +189,12 @@ hilo3.start();// TODO add your handling code here:
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Bmenu;
     private javax.swing.JButton btiniciar;
     private javax.swing.JLabel lbl1;
     private javax.swing.JLabel lbl2;
     private javax.swing.JLabel lbl3;
+    private javax.swing.JLabel lbl4;
     private javax.swing.JLabel lbl_barrera;
     // End of variables declaration//GEN-END:variables
 }
